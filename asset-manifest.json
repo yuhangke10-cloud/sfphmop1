@@ -1,0 +1,218 @@
+[
+  {
+    "theme": "light",
+    "mode": 0,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Satellite-Unfold-Light - clear.png",
+    "file": "assets/images/light-satellite-open-clear.png",
+    "sha256": "a2fd75bec8e0e88aefde126ad4ecec0b3c6bea4901e670bd3e35257d77cf0ac8"
+  },
+  {
+    "theme": "light",
+    "mode": 0,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Satellite-Unfold-Light.png",
+    "file": "assets/images/light-satellite-open-detail.png",
+    "sha256": "91bc6e6d0a1ad669930865696078e5aa1a2a66e19604d630b84bce11fbab24d6"
+  },
+  {
+    "theme": "light",
+    "mode": 0,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Satellite-Fold-Light - clear.png",
+    "file": "assets/images/light-satellite-closed-clear.png",
+    "sha256": "0b836f012c6d8024d6ec44d398fb12e58d8662b940410b520677cbf98c48747e"
+  },
+  {
+    "theme": "light",
+    "mode": 0,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Satellite-Fold-Light.png",
+    "file": "assets/images/light-satellite-closed-detail.png",
+    "sha256": "0d84dd3b0f110e1906bd55949551fa6029fae7c018a280090fea37336925f8b6"
+  },
+  {
+    "theme": "light",
+    "mode": 1,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Network- Unfold- Light - clear.png",
+    "file": "assets/images/light-network-open-clear.png",
+    "sha256": "eb8952819caec53b4f7ab1d74d69b579322940435e394b8989b9fb1e4a5186c8"
+  },
+  {
+    "theme": "light",
+    "mode": 1,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Network- Unfold- Light.png",
+    "file": "assets/images/light-network-open-detail.png",
+    "sha256": "0a9842f3a26b5907bbcaa5dcfe95ceadc6ab28ac4e3e77122f0716e245e4c25e"
+  },
+  {
+    "theme": "light",
+    "mode": 1,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Light - clear.png",
+    "file": "assets/images/light-network-closed-clear.png",
+    "sha256": "196865bfe15fbdb5066af64a013c1fe0684fc8a2e92378f274c9f5811b92126d"
+  },
+  {
+    "theme": "light",
+    "mode": 1,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Light.png",
+    "file": "assets/images/light-network-closed-detail.png",
+    "sha256": "b7e20e88ed5f941dd4bd88aa5c9165a74d7ee51b15acccb3a8b7fa09d00dcb44"
+  },
+  {
+    "theme": "light",
+    "mode": 2,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Operation-Unfold-Light - clear.png",
+    "file": "assets/images/light-operation-open-clear.png",
+    "sha256": "f62cb12be259d9b70bd0b1c5774a9b805d54611143504bd70493b6bca8f6bd07"
+  },
+  {
+    "theme": "light",
+    "mode": 2,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Operation-Unfold-Light.png",
+    "file": "assets/images/light-operation-open-detail.png",
+    "sha256": "2bd7926492639ecfef6781986b4c8bffda0bd1866a3cce025ffec99648675e0a"
+  },
+  {
+    "theme": "light",
+    "mode": 2,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout - PC Desktop - Operation - Fold - Light - clear-1.png",
+    "file": "assets/images/light-operation-closed-clear.png",
+    "sha256": "94b960f02b8d8861025118faec3f02589bb5bb363deb8d1095facd0dd30d7253"
+  },
+  {
+    "theme": "light",
+    "mode": 2,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout - PC Desktop - Operation - Fold - Light-1.png",
+    "file": "assets/images/light-operation-closed-detail.png",
+    "sha256": "cec1e63b16556fe9f4f8ad6aa8f0711e50abf54f8c974c12b080c252a1539685"
+  },
+  {
+    "theme": "dark",
+    "mode": 0,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Satellite-Unfold-Dark - clear.png",
+    "file": "assets/images/dark-satellite-open-clear.png",
+    "sha256": "b08c6bc9d5c7c2ca806f7290cee4b407fd43d3c82d551cf3d57b57a9878e8b57"
+  },
+  {
+    "theme": "dark",
+    "mode": 0,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Satellite-Unfold-Dark.png",
+    "file": "assets/images/dark-satellite-open-detail.png",
+    "sha256": "8f9bfc19495baa787d4e1a915fc9033daaae8b170ef8c46c476f62f868064da3"
+  },
+  {
+    "theme": "dark",
+    "mode": 0,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Satellite-Fold-Dark - clear.png",
+    "file": "assets/images/dark-satellite-closed-clear.png",
+    "sha256": "d8de9fd554daaa020446fc0c0d2faa3c33a0603ec4dbff19b93e7c5e4857b55e"
+  },
+  {
+    "theme": "dark",
+    "mode": 0,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Satellite-Fold-Dark.png",
+    "file": "assets/images/dark-satellite-closed-detail.png",
+    "sha256": "1a5f1ec2bbf57c9a2dc23c5f56810c40cb718d20a0e35496f77f47021f57161a"
+  },
+  {
+    "theme": "dark",
+    "mode": 1,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Dark - clear.png",
+    "file": "assets/images/dark-network-open-clear.png",
+    "sha256": "e78065c42079247c941b13e526423560ff6caf669bfe57798c83588d185ff624"
+  },
+  {
+    "theme": "dark",
+    "mode": 1,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Dark.png",
+    "file": "assets/images/dark-network-open-detail.png",
+    "sha256": "cc085d6a055ecf6699491b1a107fc1479c6c52b5b460c19b6194ac72529e10a3"
+  },
+  {
+    "theme": "dark",
+    "mode": 1,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout - PC Desktop-Network-Fold-Dark - clear.png",
+    "file": "assets/images/dark-network-closed-clear.png",
+    "sha256": "73c91bbcbe3828ec56ecf2892cc3a67098e3f02c2940f1a1aa6816aef777064f"
+  },
+  {
+    "theme": "dark",
+    "mode": 1,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout - PC Desktop-Network-Fold-Dark.png",
+    "file": "assets/images/dark-network-closed-detail.png",
+    "sha256": "d431163ef620f48774ef116f4ee38fbadff12b17c490720aae37e6fd6d7db802"
+  },
+  {
+    "theme": "dark",
+    "mode": 2,
+    "side": "open",
+    "kind": "clear",
+    "source": "PHM Layout-PC Desktop-Operation-Unfold-Dark - clear-1.png",
+    "file": "assets/images/dark-operation-open-clear.png",
+    "sha256": "d97460a91cefb493fd6652c0082544e1428ee7b01fa4b5ff85b82662d15a4475"
+  },
+  {
+    "theme": "dark",
+    "mode": 2,
+    "side": "open",
+    "kind": "detail",
+    "source": "PHM Layout-PC Desktop-Operation-Unfold-Dark-1.png",
+    "file": "assets/images/dark-operation-open-detail.png",
+    "sha256": "ecff2cb6bbf6a85f25bd2137191321948e98cb981cb8afd4326cba9f3b2ceacd"
+  },
+  {
+    "theme": "dark",
+    "mode": 2,
+    "side": "closed",
+    "kind": "clear",
+    "source": "PHM Layout - PC Desktop - Operation - Fold - Dark - clear.png",
+    "file": "assets/images/dark-operation-closed-clear.png",
+    "sha256": "908e155a93d7c5d202b889302bd0e87a75e190b7ebb6b0c7268f3b5995fa0dc8"
+  },
+  {
+    "theme": "dark",
+    "mode": 2,
+    "side": "closed",
+    "kind": "detail",
+    "source": "PHM Layout - PC Desktop - Operation - Fold - Dark.png",
+    "file": "assets/images/dark-operation-closed-detail.png",
+    "sha256": "918bb1d1fd765b298736c403de21398cd494de4ab8425884c1ed9f42ffff40b6"
+  }
+]

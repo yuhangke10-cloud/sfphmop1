@@ -1,5 +1,4 @@
-
-    const screens = {"light":[{"open":{"clear":"assets/images/asset-03.png","detail":"assets/images/asset-04.png"},"closed":{"clear":"assets/images/asset-05.png","detail":"assets/images/asset-06.png"}},{"open":{"clear":"assets/images/asset-07.png","detail":"assets/images/asset-08.png"},"closed":{"clear":"assets/images/asset-09.png","detail":"assets/images/asset-10.png"}}],"dark":[{"open":{"clear":"assets/images/asset-11.png","detail":"assets/images/asset-12.png"},"closed":{"clear":"assets/images/asset-13.png","detail":"assets/images/asset-14.png"}},{"open":{"clear":"assets/images/asset-15.png","detail":"assets/images/asset-16.png"},"closed":{"clear":"assets/images/asset-17.png","detail":"assets/images/asset-18.png"}}]};
+const screens = {"light":[{"open":{"clear":"assets/images/light-satellite-open-clear.png","detail":"assets/images/light-satellite-open-detail.png"},"closed":{"clear":"assets/images/light-satellite-closed-clear.png","detail":"assets/images/light-satellite-closed-detail.png"}},{"open":{"clear":"assets/images/light-network-open-clear.png","detail":"assets/images/light-network-open-detail.png"},"closed":{"clear":"assets/images/light-network-closed-clear.png","detail":"assets/images/light-network-closed-detail.png"}},{"open":{"clear":"assets/images/light-operation-open-clear.png","detail":"assets/images/light-operation-open-detail.png"},"closed":{"clear":"assets/images/light-operation-closed-clear.png","detail":"assets/images/light-operation-closed-detail.png"}}],"dark":[{"open":{"clear":"assets/images/dark-satellite-open-clear.png","detail":"assets/images/dark-satellite-open-detail.png"},"closed":{"clear":"assets/images/dark-satellite-closed-clear.png","detail":"assets/images/dark-satellite-closed-detail.png"}},{"open":{"clear":"assets/images/dark-network-open-clear.png","detail":"assets/images/dark-network-open-detail.png"},"closed":{"clear":"assets/images/dark-network-closed-clear.png","detail":"assets/images/dark-network-closed-detail.png"}},{"open":{"clear":"assets/images/dark-operation-open-clear.png","detail":"assets/images/dark-operation-open-detail.png"},"closed":{"clear":"assets/images/dark-operation-closed-clear.png","detail":"assets/images/dark-operation-closed-detail.png"}}]};
     const SOURCE_WIDTH = 10240, SOURCE_HEIGHT = 5760;
     const hotspots = {
       sidebar: { x: 0, y: 0, width: 850, height: 1060 },
@@ -52,7 +51,7 @@
       const x = (event.clientX - (window.innerWidth - SOURCE_WIDTH * scale) / 2) / scale;
       const y = event.clientY / scale;
       const mapArea = { x: sidebarOpen ? 950 : 320, y: 1900, width: sidebarOpen ? 6890 : 7520, height: 3650 };
-      const selectedTrain = highlightedTrainAreas[activeMode][sidebarOpen ? 'open' : 'closed'];
+      const selectedTrain = highlightedTrainAreas[Math.min(activeMode, 1)][sidebarOpen ? 'open' : 'closed'];
       if (containsPoint(mapArea, x, y) && !containsPoint(selectedTrain, x, y)) {
         showDetail = false;
         render();
@@ -81,4 +80,3 @@
       }, 30000);
     }
     window.addEventListener('resize', render); render();
-  
