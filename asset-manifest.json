@@ -6,7 +6,7 @@
     "kind": "clear",
     "source": "PHM Layout-PC Desktop-Satellite-Unfold-Light - clear.png",
     "file": "assets/images/light-satellite-open-clear.png",
-    "sha256": "a2fd75bec8e0e88aefde126ad4ecec0b3c6bea4901e670bd3e35257d77cf0ac8"
+    "sha256": "6b41a77eb4da901582f966adaeb8f788fcc2afc245044b0b83595c3cd802bc80"
   },
   {
     "theme": "light",
@@ -15,7 +15,7 @@
     "kind": "detail",
     "source": "PHM Layout-PC Desktop-Satellite-Unfold-Light.png",
     "file": "assets/images/light-satellite-open-detail.png",
-    "sha256": "91bc6e6d0a1ad669930865696078e5aa1a2a66e19604d630b84bce11fbab24d6"
+    "sha256": "d6550c2dfadd0b19ca501d8b8c0a050b8948e64432f23d9767249be338a33fc9"
   },
   {
     "theme": "light",
@@ -42,7 +42,7 @@
     "kind": "clear",
     "source": "PHM Layout-PC Desktop-Network- Unfold- Light - clear.png",
     "file": "assets/images/light-network-open-clear.png",
-    "sha256": "eb8952819caec53b4f7ab1d74d69b579322940435e394b8989b9fb1e4a5186c8"
+    "sha256": "95b4d78dc65a3e0c05a44dfe2d559e3a0b0aa3037bcd63fa1d7f3008f71a33d2"
   },
   {
     "theme": "light",
@@ -51,7 +51,7 @@
     "kind": "detail",
     "source": "PHM Layout-PC Desktop-Network- Unfold- Light.png",
     "file": "assets/images/light-network-open-detail.png",
-    "sha256": "0a9842f3a26b5907bbcaa5dcfe95ceadc6ab28ac4e3e77122f0716e245e4c25e"
+    "sha256": "a80522dfacf9d05ff692f3989758b3a06254489aac1d02a0799a6339a0982068"
   },
   {
     "theme": "light",
@@ -76,25 +76,25 @@
     "mode": 2,
     "side": "open",
     "kind": "clear",
-    "source": "PHM Layout-PC Desktop-Operation-Unfold-Light - clear.png",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Light - clear.png",
     "file": "assets/images/light-operation-open-clear.png",
-    "sha256": "f62cb12be259d9b70bd0b1c5774a9b805d54611143504bd70493b6bca8f6bd07"
+    "sha256": "6f83ee31d4f6a6340d2d15f9e47cf957daac2cb58ff477406e252d1974305d4b"
   },
   {
     "theme": "light",
     "mode": 2,
     "side": "open",
     "kind": "detail",
-    "source": "PHM Layout-PC Desktop-Operation-Unfold-Light.png",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Light.png",
     "file": "assets/images/light-operation-open-detail.png",
-    "sha256": "2bd7926492639ecfef6781986b4c8bffda0bd1866a3cce025ffec99648675e0a"
+    "sha256": "129500d20c7b5c3692624edf4097121ee3a34e41894a19bacad853c18250992c"
   },
   {
     "theme": "light",
     "mode": 2,
     "side": "closed",
     "kind": "clear",
-    "source": "PHM Layout - PC Desktop - Operation - Fold - Light - clear-1.png",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Light - clear-1.png",
     "file": "assets/images/light-operation-closed-clear.png",
     "sha256": "94b960f02b8d8861025118faec3f02589bb5bb363deb8d1095facd0dd30d7253"
   },
@@ -103,7 +103,7 @@
     "mode": 2,
     "side": "closed",
     "kind": "detail",
-    "source": "PHM Layout - PC Desktop - Operation - Fold - Light-1.png",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Light-1.png",
     "file": "assets/images/light-operation-closed-detail.png",
     "sha256": "cec1e63b16556fe9f4f8ad6aa8f0711e50abf54f8c974c12b080c252a1539685"
   },
@@ -184,7 +184,7 @@
     "mode": 2,
     "side": "open",
     "kind": "clear",
-    "source": "PHM Layout-PC Desktop-Operation-Unfold-Dark - clear-1.png",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Dark - clear-1.png",
     "file": "assets/images/dark-operation-open-clear.png",
     "sha256": "d97460a91cefb493fd6652c0082544e1428ee7b01fa4b5ff85b82662d15a4475"
   },
@@ -193,7 +193,7 @@
     "mode": 2,
     "side": "open",
     "kind": "detail",
-    "source": "PHM Layout-PC Desktop-Operation-Unfold-Dark-1.png",
+    "source": "PHM Layout-PC Desktop-Network-Unfold-Dark-1.png",
     "file": "assets/images/dark-operation-open-detail.png",
     "sha256": "ecff2cb6bbf6a85f25bd2137191321948e98cb981cb8afd4326cba9f3b2ceacd"
   },
@@ -202,7 +202,7 @@
     "mode": 2,
     "side": "closed",
     "kind": "clear",
-    "source": "PHM Layout - PC Desktop - Operation - Fold - Dark - clear.png",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Dark - clear.png",
     "file": "assets/images/dark-operation-closed-clear.png",
     "sha256": "908e155a93d7c5d202b889302bd0e87a75e190b7ebb6b0c7268f3b5995fa0dc8"
   },
@@ -211,7 +211,7 @@
     "mode": 2,
     "side": "closed",
     "kind": "detail",
-    "source": "PHM Layout - PC Desktop - Operation - Fold - Dark.png",
+    "source": "PHM Layout - PC Desktop - Network - Fold - Dark.png",
     "file": "assets/images/dark-operation-closed-detail.png",
     "sha256": "918bb1d1fd765b298736c403de21398cd494de4ab8425884c1ed9f42ffff40b6"
   }

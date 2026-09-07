@@ -12,3 +12,5 @@
   "screenImages": 24,
   "otherImages": 2
 }
+
+Option1 v0.5.2：图片来自 Option1/4x2；24 个页面状态及警告图更新，交互保持原版。
