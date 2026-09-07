@@ -114,7 +114,7 @@
     "kind": "clear",
     "source": "PHM Layout-PC Desktop-Satellite-Unfold-Dark - clear.png",
     "file": "assets/images/dark-satellite-open-clear.png",
-    "sha256": "b08c6bc9d5c7c2ca806f7290cee4b407fd43d3c82d551cf3d57b57a9878e8b57"
+    "sha256": "d0de569d0ac0fbe1335a5a69dcb009baf3677f0e55187a4ca4359967fbbd7052"
   },
   {
     "theme": "dark",
@@ -123,7 +123,7 @@
     "kind": "detail",
     "source": "PHM Layout-PC Desktop-Satellite-Unfold-Dark.png",
     "file": "assets/images/dark-satellite-open-detail.png",
-    "sha256": "8f9bfc19495baa787d4e1a915fc9033daaae8b170ef8c46c476f62f868064da3"
+    "sha256": "7dcd5d14e6738a9167a7f9283370244a0bb412e1f009789e9c834dd4f1231912"
   },
   {
     "theme": "dark",
@@ -150,7 +150,7 @@
     "kind": "clear",
     "source": "PHM Layout-PC Desktop-Network-Unfold-Dark - clear.png",
     "file": "assets/images/dark-network-open-clear.png",
-    "sha256": "e78065c42079247c941b13e526423560ff6caf669bfe57798c83588d185ff624"
+    "sha256": "7134f919e79f36b42f8f78a557c03c57bc0837c26fee5ae94b1d6896a7fd9032"
   },
   {
     "theme": "dark",
@@ -159,7 +159,7 @@
     "kind": "detail",
     "source": "PHM Layout-PC Desktop-Network-Unfold-Dark.png",
     "file": "assets/images/dark-network-open-detail.png",
-    "sha256": "cc085d6a055ecf6699491b1a107fc1479c6c52b5b460c19b6194ac72529e10a3"
+    "sha256": "69f394ae64055ceb40f51575055e02b5f710b4d2d98ffb92cceccde50c27c7e9"
   },
   {
     "theme": "dark",
@@ -177,7 +177,7 @@
     "kind": "detail",
     "source": "PHM Layout - PC Desktop-Network-Fold-Dark.png",
     "file": "assets/images/dark-network-closed-detail.png",
-    "sha256": "d431163ef620f48774ef116f4ee38fbadff12b17c490720aae37e6fd6d7db802"
+    "sha256": "cf2f51a154c43ce7845af678093ebfe800c7c3d3aee9a1420f6043fc077c6219"
   },
   {
     "theme": "dark",
@@ -186,7 +186,7 @@
     "kind": "clear",
     "source": "PHM Layout-PC Desktop-Network-Unfold-Dark - clear-1.png",
     "file": "assets/images/dark-operation-open-clear.png",
-    "sha256": "d97460a91cefb493fd6652c0082544e1428ee7b01fa4b5ff85b82662d15a4475"
+    "sha256": "ce127fa3088334b2b97b56760c1df9cf580b0b72eac14509738e1acf29b9792a"
   },
   {
     "theme": "dark",
@@ -195,7 +195,7 @@
     "kind": "detail",
     "source": "PHM Layout-PC Desktop-Network-Unfold-Dark-1.png",
     "file": "assets/images/dark-operation-open-detail.png",
-    "sha256": "ecff2cb6bbf6a85f25bd2137191321948e98cb981cb8afd4326cba9f3b2ceacd"
+    "sha256": "2367cb91889ebc33014c9e0fd025f535dd3e01b93704cff1acd0f63b64e3c962"
   },
   {
     "theme": "dark",
@@ -213,6 +213,6 @@
     "kind": "detail",
     "source": "PHM Layout - PC Desktop - Network - Fold - Dark.png",
     "file": "assets/images/dark-operation-closed-detail.png",
-    "sha256": "918bb1d1fd765b298736c403de21398cd494de4ab8425884c1ed9f42ffff40b6"
+    "sha256": "2ac5be1b1c247175d5b983b017be00a940f67e4efa24e55b27af0d6e2e694b42"
   }
 ]
