@@ -13,11 +13,14 @@
     mapLine: document.getElementById('mapLine'),
     mapSatellite: document.getElementById('mapSatellite'),
     mapNetwork: document.getElementById('mapNetwork'),
-    themeToggle: document.getElementById('themeToggle')
+    themeToggle: document.getElementById('themeToggle'),
+    drawChart: document.getElementById('drawChart'),
+    parameterBack: document.getElementById('parameterBack')
   };
 
   const state = {
     page: 'monitor',
+    parameterView: 'main',
     map: 'map',
     theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   };
@@ -29,12 +32,14 @@
     mapLine: [6460, 285, 240, 150],
     mapSatellite: [6720, 285, 340, 150],
     mapNetwork: [7080, 285, 320, 150],
-    themeToggle: [7280, 0, 180, 180]
+    themeToggle: [7280, 0, 180, 180],
+    drawChart: [6655, 228, 445, 140],
+    parameterBack: [7440, 450, 145, 145]
   };
 
   function imagePath() {
     if (state.page === 'event') return `assets/images/${state.theme}-event.png`;
-    if (state.page === 'parameter') return `assets/images/${state.theme}-parameter.png`;
+    if (state.page === 'parameter') return `assets/images/${state.theme}-parameter-${state.parameterView}.png`;
     return `assets/images/${state.theme}-${state.map}.png`;
   }
 
@@ -55,6 +60,8 @@
     screen.src = imagePath();
     document.documentElement.dataset.theme = state.theme;
     const monitorVisible = state.page === 'monitor';
+    controls.drawChart.style.display = state.page === 'parameter' && state.parameterView === 'main' ? 'block' : 'none';
+    controls.parameterBack.style.display = state.page === 'parameter' && state.parameterView === 'chart' ? 'block' : 'none';
     for (const name of ['mapLine', 'mapSatellite', 'mapNetwork']) {
       controls[name].style.display = monitorVisible ? 'block' : 'none';
     }
@@ -79,7 +86,9 @@
 
   controls.monitorTab.addEventListener('click', () => { state.page = 'monitor'; render(); });
   controls.eventTab.addEventListener('click', () => { state.page = 'event'; render(); });
-  controls.parameterTab.addEventListener('click', () => { state.page = 'parameter'; render(); });
+  controls.parameterTab.addEventListener('click', () => { state.page = 'parameter'; state.parameterView = 'main'; render(); });
+  controls.drawChart.addEventListener('click', () => { state.parameterView = 'chart'; render(); });
+  controls.parameterBack.addEventListener('click', () => { state.parameterView = 'main'; render(); });
   controls.mapLine.addEventListener('click', () => { state.map = 'line'; render(); });
   // Match the selected label embedded in the original artwork, not the filename meaning.
   controls.mapSatellite.addEventListener('click', () => { state.map = 'net'; render(); });
