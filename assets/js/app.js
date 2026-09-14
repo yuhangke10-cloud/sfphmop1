@@ -1,82 +1,92 @@
-const screens = {"light":[{"open":{"clear":"assets/images/light-satellite-open-clear.png","detail":"assets/images/light-satellite-open-detail.png"},"closed":{"clear":"assets/images/light-satellite-closed-clear.png","detail":"assets/images/light-satellite-closed-detail.png"}},{"open":{"clear":"assets/images/light-network-open-clear.png","detail":"assets/images/light-network-open-detail.png"},"closed":{"clear":"assets/images/light-network-closed-clear.png","detail":"assets/images/light-network-closed-detail.png"}},{"open":{"clear":"assets/images/light-operation-open-clear.png","detail":"assets/images/light-operation-open-detail.png"},"closed":{"clear":"assets/images/light-operation-closed-clear.png","detail":"assets/images/light-operation-closed-detail.png"}}],"dark":[{"open":{"clear":"assets/images/dark-satellite-open-clear.png","detail":"assets/images/dark-satellite-open-detail.png"},"closed":{"clear":"assets/images/dark-satellite-closed-clear.png","detail":"assets/images/dark-satellite-closed-detail.png"}},{"open":{"clear":"assets/images/dark-network-open-clear.png","detail":"assets/images/dark-network-open-detail.png"},"closed":{"clear":"assets/images/dark-network-closed-clear.png","detail":"assets/images/dark-network-closed-detail.png"}},{"open":{"clear":"assets/images/dark-operation-open-clear.png","detail":"assets/images/dark-operation-open-detail.png"},"closed":{"clear":"assets/images/dark-operation-closed-clear.png","detail":"assets/images/dark-operation-closed-detail.png"}}]};
-    const SOURCE_WIDTH = 10240, SOURCE_HEIGHT = 5760;
-    const hotspots = {
-      sidebar: { x: 0, y: 0, width: 850, height: 1060 },
-      detail: { x: 950, y: 1900, width: 6300, height: 3600 },
-      previous: { x: 7350, y: 1720, width: 105, height: 105 },
-      next: { x: 7460, y: 1720, width: 105, height: 105 },
-      theme: { x: 9850, y: 40, width: 250, height: 250 }
-    };
-    let activeTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    let activeMode = 0, sidebarOpen = true, showDetail = false;
-    const screen = document.getElementById('screen');
-    const controls = { sidebar: document.getElementById('sidebarToggle'), detail: document.getElementById('mapDetailToggle'), previous: document.getElementById('previousMode'), next: document.getElementById('nextMode'), theme: document.getElementById('themeToggle') };
-    function positionControl(element, spot) { const scale = window.innerHeight / SOURCE_HEIGHT, offsetX = (window.innerWidth - SOURCE_WIDTH * scale) / 2; Object.assign(element.style, { left: `${offsetX + spot.x * scale}px`, top: `${spot.y * scale}px`, width: `${spot.width * scale}px`, height: `${spot.height * scale}px` }); }
-    function render() {
-      syncAlertPage();
-      const state = showDetail ? 'detail' : 'clear';
-      screen.src = screens[activeTheme][activeMode][sidebarOpen ? 'open' : 'closed'][state];
-      document.documentElement.dataset.theme = activeTheme;
-      document.title = 'CRL-CdM System™';
-      controls.sidebar.setAttribute('aria-label', sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar');
-      controls.detail.style.pointerEvents = showDetail ? 'none' : 'auto';
-      Object.entries(hotspots).forEach(([key, spot]) => positionControl(controls[key], spot));
-      // Artwork coordinates: sidebar collapse shifts this toolbar 160 source pixels.
-      const scale = window.innerHeight / SOURCE_HEIGHT;
-      const previousCenter = sidebarOpen ? 7424 : 7264;
-      const nextCenter = previousCenter + 112;
-      const split = (previousCenter + nextCenter) / 2;
-      const hitHeight = Math.max(176, 32 / scale);
-      const leftEdge = previousCenter - Math.max(96, 20 / scale);
-      positionControl(controls.previous, { x: leftEdge, y: 1832 - hitHeight / 2, width: split - leftEdge, height: hitHeight });
-      // Adjacent regions meet without overlapping; stop before the fullscreen icon.
-      positionControl(controls.next, { x: split, y: 1832 - hitHeight / 2, width: nextCenter + 104 - split, height: hitHeight });
-    }
-    controls.sidebar.addEventListener('click', () => { sidebarOpen = !sidebarOpen; render(); });
-    controls.detail.addEventListener('click', () => { if (!showDetail) { showDetail = true; render(); } });
-    controls.previous.addEventListener('click', () => { activeMode = (activeMode + screens[activeTheme].length - 1) % screens[activeTheme].length; showDetail = false; render(); });
-    controls.next.addEventListener('click', () => { activeMode = (activeMode + 1) % screens[activeTheme].length; showDetail = false; render(); });
-    controls.theme.addEventListener('click', () => { activeTheme = activeTheme === 'light' ? 'dark' : 'light'; render(); });
-    // Image-space hit testing follows the same height-fit transform as the screen.
-    const highlightedTrainAreas = [
-      { open: { x: 2940, y: 3300, width: 550, height: 300 }, closed: { x: 2300, y: 3300, width: 550, height: 300 } },
-      { open: { x: 4570, y: 3050, width: 550, height: 300 }, closed: { x: 4160, y: 3050, width: 550, height: 300 } }
-    ];
-    function containsPoint(area, x, y) {
-      return x >= area.x && x <= area.x + area.width && y >= area.y && y <= area.y + area.height;
-    }
-    document.getElementById('stage').addEventListener('click', (event) => {
-      if (!showDetail) return;
-      const scale = window.innerHeight / SOURCE_HEIGHT;
-      const x = (event.clientX - (window.innerWidth - SOURCE_WIDTH * scale) / 2) / scale;
-      const y = event.clientY / scale;
-      const mapArea = { x: sidebarOpen ? 950 : 320, y: 1900, width: sidebarOpen ? 6890 : 7520, height: 3650 };
-      const selectedTrain = highlightedTrainAreas[Math.min(activeMode, 1)][sidebarOpen ? 'open' : 'closed'];
-      if (containsPoint(mapArea, x, y) && !containsPoint(selectedTrain, x, y)) {
-        showDetail = false;
-        render();
-      }
+(() => {
+  'use strict';
+
+  const WIDTH = 7680;
+  const HEIGHT = 4320;
+  const screen = document.getElementById('screen');
+  const passwordGate = document.getElementById('passwordGate');
+  const passwordInput = document.getElementById('passwordInput');
+  const controls = {
+    monitorTab: document.getElementById('monitorTab'),
+    eventTab: document.getElementById('eventTab'),
+    parameterTab: document.getElementById('parameterTab'),
+    mapModeSwitcher: document.getElementById('mapModeSwitcher'),
+    themeToggle: document.getElementById('themeToggle')
+  };
+
+  const state = {
+    page: 'monitor',
+    map: 'map',
+    theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  };
+
+  const regions = {
+    monitorTab: [650, 0, 885, 180],
+    eventTab: [1540, 0, 895, 180],
+    parameterTab: [2440, 0, 895, 180],
+    mapModeSwitcher: [6360, 240, 1090, 260],
+    themeToggle: [7280, 0, 180, 180]
+  };
+
+  function imagePath() {
+    if (state.page === 'event') return `assets/images/${state.theme}-event.png`;
+    if (state.page === 'parameter') return `assets/images/${state.theme}-parameter.png`;
+    return `assets/images/${state.theme}-${state.map}.png`;
+  }
+
+  function layout() {
+    const scale = innerHeight / HEIGHT;
+    const offsetX = (innerWidth - WIDTH * scale) / 2;
+    Object.entries(regions).forEach(([name, [x, y, width, height]]) => {
+      Object.assign(controls[name].style, {
+        left: `${offsetX + x * scale}px`,
+        top: `${y * scale}px`,
+        width: `${width * scale}px`,
+        height: `${height * scale}px`
+      });
     });
-    const alertElement = document.getElementById('alertNotification');
-    let alertPageKey = null, alertWaitTimer = null, alertHideTimer = null;
-    function hideAlert() {
-      alertElement.classList.remove('is-visible');
-      alertElement.setAttribute('aria-hidden', 'true');
-      alertElement.removeAttribute('role');
+  }
+
+  function render() {
+    screen.src = imagePath();
+    document.documentElement.dataset.theme = state.theme;
+    const monitorVisible = state.page === 'monitor';
+    controls.mapModeSwitcher.style.display = monitorVisible ? 'block' : 'none';
+    controls.monitorTab.setAttribute('aria-pressed', String(state.page === 'monitor'));
+    controls.eventTab.setAttribute('aria-pressed', String(state.page === 'event'));
+    controls.parameterTab.setAttribute('aria-pressed', String(state.page === 'parameter'));
+    controls.themeToggle.setAttribute('aria-label', state.theme === 'light' ? 'Switch to dark' : 'Switch to light');
+    layout();
+  }
+
+  passwordInput.addEventListener('keydown', event => {
+    if (event.key !== 'Enter') return;
+    if (passwordInput.value === '18817962338') {
+      passwordGate.classList.add('is-hidden');
+      passwordGate.setAttribute('aria-hidden', 'true');
+    } else {
+      passwordInput.value = '';
+      passwordInput.setAttribute('aria-invalid', 'true');
+      passwordInput.focus();
     }
-    function syncAlertPage() {
-      const pageKey = `${activeTheme}:${activeMode}:${sidebarOpen}:${showDetail}`;
-      if (pageKey === alertPageKey) return;
-      alertPageKey = pageKey;
-      clearTimeout(alertWaitTimer);
-      clearTimeout(alertHideTimer);
-      hideAlert();
-      alertWaitTimer = setTimeout(() => {
-        if (alertPageKey !== pageKey) return;
-        alertElement.setAttribute('role', 'alert');
-        alertElement.setAttribute('aria-hidden', 'false');
-        alertElement.classList.add('is-visible');
-        alertHideTimer = setTimeout(hideAlert, 20000);
-      }, 30000);
-    }
-    window.addEventListener('resize', render); render();
+  });
+
+  controls.monitorTab.addEventListener('click', () => { state.page = 'monitor'; render(); });
+  controls.eventTab.addEventListener('click', () => { state.page = 'event'; render(); });
+  controls.parameterTab.addEventListener('click', () => { state.page = 'parameter'; render(); });
+  controls.mapModeSwitcher.addEventListener('click', event => {
+    const rect = controls.mapModeSwitcher.getBoundingClientRect();
+    const position = (event.clientX - rect.left) / rect.width;
+    if (position < 0.303) state.map = 'line';
+    else if (position < 0.656) state.map = 'map';
+    else state.map = 'net';
+    render();
+  });
+  controls.themeToggle.addEventListener('click', () => {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    render();
+  });
+
+  addEventListener('resize', layout);
+  render();
+})();
