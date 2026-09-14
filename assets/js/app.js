@@ -10,7 +10,9 @@
     monitorTab: document.getElementById('monitorTab'),
     eventTab: document.getElementById('eventTab'),
     parameterTab: document.getElementById('parameterTab'),
-    mapModeSwitcher: document.getElementById('mapModeSwitcher'),
+    mapLine: document.getElementById('mapLine'),
+    mapSatellite: document.getElementById('mapSatellite'),
+    mapNetwork: document.getElementById('mapNetwork'),
     themeToggle: document.getElementById('themeToggle')
   };
 
@@ -24,7 +26,9 @@
     monitorTab: [650, 0, 885, 180],
     eventTab: [1540, 0, 895, 180],
     parameterTab: [2440, 0, 895, 180],
-    mapModeSwitcher: [6360, 240, 1090, 260],
+    mapLine: [6460, 285, 240, 150],
+    mapSatellite: [6720, 285, 340, 150],
+    mapNetwork: [7080, 285, 320, 150],
     themeToggle: [7280, 0, 180, 180]
   };
 
@@ -51,7 +55,9 @@
     screen.src = imagePath();
     document.documentElement.dataset.theme = state.theme;
     const monitorVisible = state.page === 'monitor';
-    controls.mapModeSwitcher.style.display = monitorVisible ? 'block' : 'none';
+    for (const name of ['mapLine', 'mapSatellite', 'mapNetwork']) {
+      controls[name].style.display = monitorVisible ? 'block' : 'none';
+    }
     controls.monitorTab.setAttribute('aria-pressed', String(state.page === 'monitor'));
     controls.eventTab.setAttribute('aria-pressed', String(state.page === 'event'));
     controls.parameterTab.setAttribute('aria-pressed', String(state.page === 'parameter'));
@@ -74,14 +80,10 @@
   controls.monitorTab.addEventListener('click', () => { state.page = 'monitor'; render(); });
   controls.eventTab.addEventListener('click', () => { state.page = 'event'; render(); });
   controls.parameterTab.addEventListener('click', () => { state.page = 'parameter'; render(); });
-  controls.mapModeSwitcher.addEventListener('click', event => {
-    const rect = controls.mapModeSwitcher.getBoundingClientRect();
-    const position = (event.clientX - rect.left) / rect.width;
-    if (position < 0.303) state.map = 'line';
-    else if (position < 0.656) state.map = 'map';
-    else state.map = 'net';
-    render();
-  });
+  controls.mapLine.addEventListener('click', () => { state.map = 'line'; render(); });
+  // Match the selected label embedded in the original artwork, not the filename meaning.
+  controls.mapSatellite.addEventListener('click', () => { state.map = 'net'; render(); });
+  controls.mapNetwork.addEventListener('click', () => { state.map = 'map'; render(); });
   controls.themeToggle.addEventListener('click', () => {
     state.theme = state.theme === 'light' ? 'dark' : 'light';
     render();
