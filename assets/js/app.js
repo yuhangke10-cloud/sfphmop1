@@ -1,8 +1,8 @@
 (() => {
   'use strict';
 
-  const WIDTH = 7680;
-  const HEIGHT = 4320;
+  const WIDTH = 1920;
+  const HEIGHT = 1080;
   const screen = document.getElementById('screen');
   const passwordGate = document.getElementById('passwordGate');
   const passwordInput = document.getElementById('passwordInput');
@@ -26,16 +26,44 @@
   };
 
   const regions = {
-    monitorTab: [650, 0, 885, 180],
-    eventTab: [1540, 0, 895, 180],
-    parameterTab: [2440, 0, 895, 180],
-    mapLine: [6460, 285, 240, 150],
-    mapSatellite: [6720, 285, 340, 150],
-    mapNetwork: [7080, 285, 320, 150],
-    themeToggle: [7280, 0, 180, 180],
-    drawChart: [6655, 228, 445, 140],
-    parameterBack: [7440, 450, 145, 145]
+    monitorTab: [162, 0, 224, 46],
+    eventTab: [386, 0, 224, 46],
+    parameterTab: [610, 0, 224, 46],
+    mapLine: [1615, 71, 64, 39],
+    mapSatellite: [1679, 71, 88, 39],
+    mapNetwork: [1767, 71, 86, 39],
+    themeToggle: [1815, 0, 54, 46],
+    drawChart: [1790, 60, 108, 29],
+    parameterBack: [1788, 59, 107, 29]
   };
+
+  const allImages = [
+    'light-line.png', 'light-map.png', 'light-net.png',
+    'dark-line.png', 'dark-map.png', 'dark-net.png',
+    'light-event.png', 'dark-event.png',
+    'light-parameter-main.png', 'light-parameter-chart.png',
+    'dark-parameter-main.png', 'dark-parameter-chart.png'
+  ].map(name => `assets/images/${name}`);
+
+  let assetsReady = false;
+  let preloadPromise = null;
+  const preloadCache = [];
+
+  function preloadAllImages() {
+    if (preloadPromise) return preloadPromise;
+    const current = imagePath();
+    const queue = [current, ...allImages.filter(path => path !== current)];
+    preloadPromise = Promise.all(queue.map((path, index) => new Promise(resolve => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.fetchPriority = index === 0 ? 'high' : 'low';
+      preloadCache.push(image);
+      image.onload = resolve;
+      image.onerror = resolve;
+      image.src = path;
+    }))).then(() => { assetsReady = true; });
+    return preloadPromise;
+  }
 
   function imagePath() {
     if (state.page === 'event') return `assets/images/${state.theme}-event.png`;
@@ -72,9 +100,15 @@
     layout();
   }
 
-  passwordInput.addEventListener('keydown', event => {
+  passwordInput.addEventListener('keydown', async event => {
     if (event.key !== 'Enter') return;
     if (passwordInput.value === '18817962338') {
+      passwordInput.disabled = true;
+      passwordInput.value = '';
+      passwordInput.placeholder = assetsReady ? 'Ready' : 'Loading…';
+      await preloadAllImages();
+      render();
+      await screen.decode().catch(() => {});
       passwordGate.classList.add('is-hidden');
       passwordGate.setAttribute('aria-hidden', 'true');
     } else {
@@ -84,9 +118,15 @@
     }
   });
 
-  controls.monitorTab.addEventListener('click', () => { state.page = 'monitor'; render(); });
-  controls.eventTab.addEventListener('click', () => { state.page = 'event'; render(); });
-  controls.parameterTab.addEventListener('click', () => { state.page = 'parameter'; state.parameterView = 'main'; render(); });
+  function switchPage(page) {
+    state.page = page;
+    if (page === 'parameter') state.parameterView = 'main';
+    render();
+  }
+
+  controls.monitorTab.addEventListener('click', () => switchPage('monitor'));
+  controls.eventTab.addEventListener('click', () => switchPage('event'));
+  controls.parameterTab.addEventListener('click', () => switchPage('parameter'));
   controls.drawChart.addEventListener('click', () => { state.parameterView = 'chart'; render(); });
   controls.parameterBack.addEventListener('click', () => { state.parameterView = 'main'; render(); });
   controls.mapLine.addEventListener('click', () => { state.map = 'line'; render(); });
@@ -99,5 +139,6 @@
   });
 
   addEventListener('resize', layout);
+  preloadAllImages();
   render();
 })();
